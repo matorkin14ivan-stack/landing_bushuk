@@ -39,11 +39,11 @@ export function FinalCTA() {
         {/* Section title */}
         <div className="text-center mb-12">
           <h2 className="font-['Montserrat'] font-bold text-4xl md:text-5xl lg:text-6xl text-[#002D62] mb-6 leading-tight">
-            Получите проверку за 24 часа
+            Проверьте своё название бесплатно
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#D4AF37] to-[#50C878] mx-auto rounded-full mb-6" />
           <p className="font-['Montserrat'] text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Оставьте контакты — патентный поверенный проверит название/сайт и даст понятный план действий
+            Оставьте контакты — юрист проверит ваше название и расскажет, что делать дальше
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export function FinalCTA() {
                   Заявка отправлена!
                 </h3>
                 <p className="font-['Montserrat'] text-lg text-gray-600">
-                  Мы свяжемся с вами и пришлём результат. Если звонки неудобны — напишем в мессенджер и согласуем время.
+                  Наш юрист свяжется с вами в ближайшее время
                 </p>
               </div>
             ) : (

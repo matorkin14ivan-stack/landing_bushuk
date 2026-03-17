@@ -1,24 +1,11 @@
-# Landing (Figma export) — GitHub Pages ready
 
-Этот проект пересобран в полноценный Vite + React + TypeScript проект и готов к деплою на GitHub Pages.
+  # High-conversion landing page
 
-## Локальный запуск
+  This is a code bundle for High-conversion landing page. The original project is available at https://www.figma.com/design/2XOqwGmqGpG7a1h7Dn9RdI/High-conversion-landing-page.
 
-```bash
-npm install
-npm run dev
-```
+  ## Running the code
 
-## Деплой на GitHub Pages (рекомендуемый способ)
+  Run `npm i` to install the dependencies.
 
-1. Загрузите весь проект в репозиторий GitHub.
-2. В репозитории откройте **Settings → Pages**.
-3. В разделе **Build and deployment → Source** выберите **GitHub Actions**.
-4. Зайдите во вкладку **Actions** и дождитесь завершения workflow `Deploy Vite site to GitHub Pages`.
-5. GitHub покажет ссылку на опубликованный сайт.
-
-> Примечание: в `vite.config.ts` используется `base: "./"`, поэтому сайт корректно работает и на `https://<user>.github.io/<repo>/`, и на кастомном домене.
-
-## Кастомный домен
-
-Добавьте домен в **Settings → Pages → Custom domain** и включите **Enforce HTTPS** (после успешной проверки DNS).
+  Run `npm run dev` to start the development server.
+  

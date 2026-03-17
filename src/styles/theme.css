@@ -1,0 +1,116 @@
+@layer base {
+  /* Premium Legal-Tech Reset */
+  * {
+    @apply border-gray-200;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Typography Hierarchy */
+  h1 {
+    @apply text-5xl font-bold text-[#002D62] leading-[1.1] tracking-tight;
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* 40-56px */
+  }
+
+  h2 {
+    @apply text-4xl font-bold text-[#002D62] leading-[1.2] tracking-tight;
+    font-size: clamp(1.875rem, 3vw, 2.25rem); /* 30-36px */
+  }
+
+  h3 {
+    @apply text-2xl font-semibold text-[#002D62] leading-[1.3];
+    font-size: clamp(1.25rem, 2vw, 1.5rem); /* 20-24px */
+  }
+
+  p {
+    @apply text-base text-gray-700 leading-relaxed;
+  }
+
+  /* Buttons */
+  button {
+    @apply font-medium transition-all duration-300;
+  }
+
+  /* Inputs */
+  input,
+  textarea {
+    @apply font-normal;
+  }
+
+  /* Links */
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  /* Remove default focus rings, add custom ones */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-[#002D62] ring-offset-2;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .container-custom {
+    @apply container mx-auto px-4 max-w-[1240px];
+  }
+
+  /* Spacing scale */
+  .spacing-8 {
+    @apply p-2;
+  }
+  .spacing-16 {
+    @apply p-4;
+  }
+  .spacing-24 {
+    @apply p-6;
+  }
+  .spacing-32 {
+    @apply p-8;
+  }
+  .spacing-48 {
+    @apply p-12;
+  }
+  .spacing-64 {
+    @apply p-16;
+  }
+
+  /* Border radius scale */
+  .radius-sm {
+    @apply rounded-lg;
+  }
+  .radius-md {
+    @apply rounded-xl;
+  }
+  .radius-lg {
+    @apply rounded-2xl;
+  }
+  .radius-xl {
+    @apply rounded-3xl;
+  }
+
+  /* Shadows - minimal and precise */
+  .shadow-card {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  }
+  .shadow-card-hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  }
+  .shadow-elevated {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  }
+
+  /* Premium card style */
+  .card-premium {
+    @apply bg-white border border-gray-200 rounded-2xl;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}

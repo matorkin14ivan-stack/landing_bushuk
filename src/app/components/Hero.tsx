@@ -1,132 +1,105 @@
-import { Shield, CheckCircle2 } from "lucide-react";
+import { Shield, AlertTriangle } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Hero() {
   const scrollToForm = () => {
-    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="pt-28 md:pt-36 pb-16 md:pb-24 bg-white relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,45,98,0.06),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(212,175,55,0.08),transparent_55%)]" />
-        {/* Photo layer (soft) */}
-        <div className="absolute top-0 right-0 h-full w-[52%] hidden lg:block">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center" />
-          <div className="absolute inset-0 bg-gradient-to-l from-white/0 via-white/70 to-white" />
-          <div className="absolute inset-0 bg-[#002D62]/5" />
-        </div>
-        {/* Subtle grid */}
-        <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#002D62_1px,transparent_1px),linear-gradient(to_bottom,#002D62_1px,transparent_1px)] bg-[size:64px_64px]" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#002D62] via-[#003870] to-[#002D62]">
+      {/* Animated background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                           radial-gradient(circle at 80% 80%, rgba(80, 200, 120, 0.1) 0%, transparent 50%)`
+        }} />
       </div>
 
-      <div className="relative container mx-auto px-4 max-w-[1240px]">
-        <div className="grid lg:grid-cols-12 gap-10 items-start">
-          {/* Left */}
-          <div className="lg:col-span-7">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 border border-red-100 text-red-600 text-sm font-medium mb-6">
-              <span className="w-2 h-2 rounded-full bg-red-500" />
-              Закон действует с 1 марта 2026
-            </div>
+      {/* Shield decoration */}
+      <div className="absolute top-20 right-10 opacity-5">
+        <Shield className="w-96 h-96 text-[#D4AF37]" />
+      </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#002D62] leading-tight">
-              Иностранные слова на вывеске и в рекламе —
-              <span className="text-[#D4AF37]"> риск штрафов до 500&nbsp;000&nbsp;₽</span>
+      <div className="relative z-10 container mx-auto px-4 py-20 max-w-6xl">
+        <div className="space-y-10">
+          {/* Main headline */}
+          <div className="text-center space-y-6">
+            <h1 className="font-['Montserrat'] font-bold text-5xl md:text-6xl lg:text-7xl text-white leading-tight tracking-tight">
+              С 1 марта вывеска может обойтись вам 
+              <span className="block text-[#D4AF37] mt-2">в 200 000 ₽ убытков</span>
             </h1>
-
-            <p className="mt-6 text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl">
-              Проверим название и ваш сайт за 24 часа и дадим чёткий план: что перевести, что заменить,
-              а что выгоднее закрыть товарным знаком — чтобы сохранить узнаваемость и не попасть в
-              ненужные расходы.
-            </p>
-
-            {/* Bullets */}
-            <div className="mt-8 space-y-4">
-              {[
-                "Покажем зоны риска: вывеска, сайт, карточки на маркетплейсах, упаковка",
-                "Дадим готовый план действий: перевод / замена / регистрация товарного знака",
-                "Проверим риск «перевода» — чтобы не попасть на чужой товарный знак и претензии",
-              ].map((t, i) => (
-                <div key={i} className="flex gap-3 items-start">
-                  <div className="mt-0.5 w-6 h-6 rounded-full bg-[#002D62] flex items-center justify-center flex-shrink-0">
-                    <CheckCircle2 className="w-4 h-4 text-white" />
-                  </div>
-                  <p className="text-base md:text-lg text-gray-700">{t}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* CTAs */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={scrollToForm}
-                className="px-8 py-4 rounded-2xl bg-[#002D62] text-white font-semibold text-base hover:bg-[#003870] transition-all duration-300 shadow-sm hover:shadow-lg"
-              >
-                Проверить название бесплатно
-              </button>
-              <button
-                onClick={scrollToForm}
-                className="px-8 py-4 rounded-2xl bg-white border-2 border-[#002D62] text-[#002D62] font-semibold text-base hover:bg-[#002D62]/5 transition-all duration-300"
-              >
-                Получить список рисков
-              </button>
-            </div>
-
-            <p className="mt-4 text-sm text-gray-500 max-w-2xl">
-              Важно: на практике штрафы отличаются в зависимости от квалификации (реклама vs информация для ознакомления).
-              Мы оцениваем риск и предлагаем безопасный сценарий.
-            </p>
           </div>
 
-          {/* Right trust card */}
-          <div className="lg:col-span-5">
-            <div className="bg-white border border-gray-200 rounded-3xl p-6 md:p-8 shadow-sm relative">
-              <div className="absolute -inset-1 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.18),transparent_55%)] -z-10" />
-
-              <div className="flex items-start gap-4 pb-6 border-b border-gray-100">
-                <div className="w-12 h-12 rounded-2xl bg-[#002D62] flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="text-lg font-semibold text-[#002D62]">Проверяет юрист</div>
-                  <div className="text-sm text-gray-500">Патентный поверенный РФ</div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-6 py-6">
-                <div>
-                  <div className="text-3xl font-extrabold text-[#002D62]">12+</div>
-                  <div className="text-sm text-gray-600">лет опыта в патентном праве</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-extrabold text-[#002D62]">850+</div>
-                  <div className="text-sm text-gray-600">зарегистрированных знаков</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-extrabold text-[#002D62]">94%</div>
-                  <div className="text-sm text-gray-600">успешных регистраций</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-extrabold text-[#002D62]">24ч</div>
-                  <div className="text-sm text-gray-600">ответ после заявки</div>
+          {/* Warning Banner with Image */}
+          <div className="backdrop-blur-xl bg-gradient-to-br from-red-900/40 to-red-800/30 border-2 border-red-400/50 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Image */}
+              <div className="relative h-64 md:h-auto overflow-hidden">
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1731795472922-cd9590487468?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdG9yZWZyb250JTIwc2lnbiUyMHJlZ3VsYXRpb25zJTIwd2FybmluZ3xlbnwxfHx8fDE3NzEzMjYzNDF8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Вывеска магазина"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-red-900/50 to-transparent" />
+                
+                {/* Warning badge on image */}
+                <div className="absolute top-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+                  <AlertTriangle className="w-5 h-5" />
+                  <span className="font-['Montserrat'] font-bold text-sm">ВНИМАНИЕ!</span>
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-gray-100 flex gap-3 items-start">
-                <div className="w-9 h-9 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center flex-shrink-0">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <path d="M14 2v6h6" />
-                  </svg>
-                </div>
-                <p className="text-sm text-gray-600">
-                  Проверку проводит дипломированный патентный поверенный — не менеджер отдела продаж.
-                </p>
+              {/* Content */}
+              <div className="p-8 md:p-10 flex flex-col justify-center">
+                <h3 className="font-['Montserrat'] font-bold text-2xl md:text-3xl text-white mb-4 leading-tight">
+                  Новые правила по вывескам с 1 марта 2026
+                </h3>
+                <ul className="space-y-3 text-white/90 font-['Montserrat'] text-base md:text-lg mb-6">
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-400 mt-1 text-xl">⚠</span>
+                    <span>Иностранные слова должны быть переведены</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-400 mt-1 text-xl">⚠</span>
+                    <span>Штрафы до 500 000 ₽ для компаний</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-400 mt-1 text-xl">⚠</span>
+                    <span>Принудительная переделка вывесок</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
+
+          {/* Value proposition */}
+          <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 md:p-12 shadow-2xl">
+            <p className="font-['Montserrat'] font-medium text-xl md:text-2xl text-white/90 leading-relaxed mb-8 text-center">
+              Мы знаем способ оставить название и не попасть на штраф и на переделки.
+            </p>
+
+            <div className="text-center">
+              <button 
+                onClick={scrollToForm}
+                className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-[#002D62] bg-gradient-to-r from-[#D4AF37] to-[#E5C158] rounded-full shadow-2xl hover:shadow-[#D4AF37]/50 transition-all duration-300 hover:scale-105 font-['Montserrat']"
+              >
+                Получить проверку названия
+                <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </button>
+
+              <p className="mt-6 text-sm text-white/60 font-['Montserrat']">
+                Без спама. Ответ юриста, не менеджера.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+          <div className="w-1.5 h-3 bg-white/60 rounded-full" />
         </div>
       </div>
     </section>

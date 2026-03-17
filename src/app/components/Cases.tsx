@@ -1,30 +1,31 @@
 import { ArrowRight } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Cases() {
   const cases = [
     {
       industry: "Салон красоты",
-      image: "https://images.unsplash.com/photo-1611211235015-e2e3a7d09e97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjBzYWxvbiUyMGludGVyaW9yJTIwbW9kZXJufGVufDF8fHx8MTc3MTY5NDk0MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      problem: "На вывеске и в рекламе — \"Beauty Lab\". Владелец боялся перевода бренда и затрат на переделку",
-      action: "Проверили обозначение по реестрам, подобрали классы МКТУ и зарегистрировали комбинированный товарный знак",
-      result: "Сохранили узнаваемость и название. Стоимость услуг: 49 500 ₽ + госпошлины. Переделка вывески не понадобилась",
+      image: "https://images.unsplash.com/photo-1759142235060-3191ee596c81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjBzYWxvbiUyMG1vZGVybiUyMGludGVyaW9yJTIwbHV4dXJ5fGVufDF8fHx8MTc3MzE1Mjk4OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      problem: "Название \"Beauty Lab\" на вывеске — риск штрафа и требования перевода",
+      action: "Зарегистрировали товарный знак с комбинацией латиницы и символа. Получили право использовать оригинальное название",
+      result: "Вывеска осталась неизменной. Расходы: 45 000 ₽. Экономия на переделке: от 200 000 ₽",
       tag: "Защита от штрафов"
     },
     {
       industry: "Сеть кофеен",
-      image: "https://images.unsplash.com/photo-1642647916129-3909c75c0267?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBzaG9wJTIwY2FmZSUyMGludGVyaW9yfGVufDF8fHx8MTc3MTczNzg5OHww&ixlib=rb-4.1.0&q=80&w=1080",
-      problem: "Перед \"быстрым переводом\" названия владелец мог попасть на чужой товарный знак и судебные претензии",
-      action: "Сделали проверку по реестрам, нашли риск сходства и предложили безопасную стратегию обозначения + регистрацию",
-      result: "Избежали конфликта с правообладателем и сохранили бренд на 8 точках. Дальше — регистрация под ключ",
+      image: "https://images.unsplash.com/photo-1751956066306-c5684cbcf385?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBzaG9wJTIwaW50ZXJpb3IlMjBjb3p5JTIwbW9kZXJufGVufDF8fHx8MTc3MzE1Mjk4OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      problem: "Конкурент зарегистрировал похожее название и требовал убрать вывески по всем точкам",
+      action: "Провели экспертизу, доказали приоритет использования, зарегистрировали собственный товарный знак",
+      result: "Суд на нашей стороне. Конкурент переименовался. 8 точек сохранили бренд",
       tag: "Защита от копий"
     },
     {
-      industry: "Производитель / упаковка",
-      image: "https://images.unsplash.com/photo-1585144860131-245d551c77f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvbmxpbmUlMjBzaG9wcGluZyUyMGVjb21tZXJjZSUyMGJ1c2luZXNzfGVufDF8fHx8MTc3MTY5NDczOHww&ixlib=rb-4.1.0&q=80&w=1080",
-      problem: "На этикетках и сайте много англоязычных описаний — риск претензий и переделки партии",
-      action: "Дали чек‑лист, что обязательно дублировать на русском (включая состав/характеристики), и какие элементы стоит закрыть товарным знаком",
-      result: "Снизили риск штрафов и срочной переделки упаковки. Подготовили стратегию защиты бренда и контента",
-      tag: "Снижение рисков"
+      industry: "Интернет-магазин",
+      image: "https://images.unsplash.com/photo-1758272423131-1cc69e29357a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvbmxpbmUlMjBzaG9wcGluZyUyMGxhcHRvcCUyMGVjb21tZXJjZXxlbnwxfHx8fDE3NzMxMTg3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      problem: "Название из словаря, невозможность выделиться и защититься от подделок",
+      action: "Разработали уникальное графическое решение, зарегистрировали комбинированный знак",
+      result: "Закрыли 3 поддельных аккаунта в соцсетях. Повысили узнаваемость на 40%",
+      tag: "Укрепление бренда"
     }
   ];
 
@@ -37,7 +38,7 @@ export function Cases() {
             Реальные кейсы клиентов
           </h2>
           <p className="text-xl text-gray-600">
-            Как мы снизили риски, сохранили узнаваемость и сэкономили бюджеты на переделках
+            Как мы помогли бизнесу избежать убытков и защитить репутацию
           </p>
         </div>
 
@@ -51,15 +52,10 @@ export function Cases() {
               <div className="grid lg:grid-cols-12">
                 {/* Image */}
                 <div className="lg:col-span-4">
-                  <img
+                  <ImageWithFallback
                     src={caseItem.image}
                     alt={caseItem.industry}
                     className="w-full h-64 lg:h-full object-cover"
-                    loading="lazy"
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
-                    }}
                   />
                 </div>
 

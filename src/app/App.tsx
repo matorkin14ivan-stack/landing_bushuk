@@ -1,12 +1,18 @@
 import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
+import { HeroVersionA } from "./components/HeroVersionA";
+import { RiskItems } from "./components/RiskItems";
 import { WhatYouGet } from "./components/WhatYouGet";
 import { CTABlock } from "./components/CTABlock";
-import { Cases } from "./components/Cases";
-import { Pricing } from "./components/Pricing";
+import { WhyNotJustTranslate } from "./components/WhyNotJustTranslate";
+import { CanCant } from "./components/CanCant";
+import { HowWeCheck } from "./components/HowWeCheck";
+import { FinesAndLosses } from "./components/FinesAndLosses";
+import { DontRush } from "./components/DontRush";
+import { Exceptions } from "./components/Exceptions";
+import { WhatYouGetAfterCheck } from "./components/WhatYouGetAfterCheck";
+import { NewFinalCTA } from "./components/NewFinalCTA";
 import { FAQ } from "./components/FAQ";
-import { FinalCTA } from "./components/FinalCTA";
-import { Footer } from "./components/Footer";
+import { NewFooter } from "./components/NewFooter";
 
 export default function App() {
   return (
@@ -14,32 +20,50 @@ export default function App() {
       {/* Sticky Header */}
       <Header />
 
-      {/* Hero */}
-      <Hero />
+      {/* 1. Hero Section */}
+      <HeroVersionA />
 
-      {/* What You Get Section */}
+      {/* 2. What We Check - Risk Items */}
+      <RiskItems />
+
+      {/* 3. When Foreign Words Become Risk */}
       <WhatYouGet />
 
       {/* CTA Block #1 */}
       <CTABlock />
 
-      {/* Cases Section */}
-      <Cases />
+      {/* 4. Why Not Just Translate */}
+      <WhyNotJustTranslate />
+
+      {/* 5. Can't / Can */}
+      <CanCant />
+
+      {/* 6. How We Check */}
+      <HowWeCheck />
 
       {/* CTA Block #2 */}
       <CTABlock />
 
-      {/* Pricing */}
-      <Pricing />
+      {/* 7. Fines and Losses */}
+      <FinesAndLosses />
 
-      {/* FAQ Section */}
+      {/* 8. Don't Rush */}
+      <DontRush />
+
+      {/* 9. Exceptions */}
+      <Exceptions />
+
+      {/* 10. What You Get After Check */}
+      <WhatYouGetAfterCheck />
+
+      {/* 11. Final CTA */}
+      <NewFinalCTA />
+
+      {/* 12. FAQ */}
       <FAQ />
 
-      {/* Final CTA with Form */}
-      <FinalCTA />
-
       {/* Footer */}
-      <Footer />
+      <NewFooter />
     </div>
   );
 }

@@ -1,117 +1,121 @@
-import { HelpCircle, CheckCircle } from "lucide-react";
-import { useState } from "react";
+import { useState } from 'react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
+
+interface FAQItemProps {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onToggle: () => void;
+}
+
+function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
+  return (
+    <div className="border border-gray-200 rounded-xl overflow-hidden bg-white hover:border-[#D4AF37] transition-all duration-300">
+      <button
+        onClick={onToggle}
+        className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left hover:bg-gray-50 transition-colors"
+      >
+        <span className="text-lg font-semibold text-[#002D62]">{question}</span>
+        <ChevronDown
+          className={`w-6 h-6 text-[#D4AF37] flex-shrink-0 transition-transform duration-300 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="px-6 pb-5 text-gray-700 leading-relaxed">
+          {answer}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs = [
     {
-      question: "Почему все говорят про штрафы «до 500 000 ₽»?",
-      answer: "Потому что если надпись/слово квалифицируют как рекламу, штрафы для юрлиц могут быть 100–500 тыс. ₽. Если это просто информация для ознакомления потребителей — санкции обычно ниже. Практика только формируется, поэтому важно заранее оценить риск и действовать по плану."
+      question: "Какие штрафы предусмотрены за нарушение закона о запрете иностранных слов?",
+      answer: "Согласно новому законодательству, за использование иностранных слов в названиях, вывесках и рекламе предусмотрены штрафы: для ИП — до 50 000 ₽, для юридических лиц — до 500 000 ₽. Повторные нарушения могут привести к еще более серьезным санкциям, включая приостановку деятельности."
     },
     {
-      question: "Можно ли оставить латиницу или английское название?",
-      answer: "Часто — да, если правильно оформить русскую часть и/или защитить обозначение как товарный знак. Но важны детали: где именно используется название (вывеска, реклама, сайт, упаковка) и как оно оформлено. Мы подскажем безопасный вариант без ребрендинга."
+      question: "Какие слова попадают под запрет?",
+      answer: "Под запрет попадают иностранные слова и выражения в товарных знаках, названиях компаний, вывесках и рекламных материалах, если для них существует общеупотребительный русский аналог. Есть исключения для охраняемых товарных знаков, общепринятых международных терминов и случаев, когда замена невозможна без потери смысла."
     },
     {
-      question: "Если товарный знак на стадии заявки — это уже «защита»?",
-      answer: "Нет. Заявка — ещё не зарегистрированный товарный знак. До регистрации использование обозначения остаётся «на риск компании». Поэтому мы даём промежуточный сценарий: что сделать сейчас, пока идёт регистрация."
+      question: "Сколько времени занимает проверка?",
+      answer: "Первичный анализ и рекомендации мы предоставляем в течение 1-2 рабочих дней после получения заявки. Полная юридическая экспертиза с детальным отчетом и стратегией защиты занимает от 3 до 5 рабочих дней, в зависимости от сложности случая."
     },
     {
-      question: "Можно ли просто «перевестись на русский» и забыть?",
-      answer: "Иногда временный переход на русскую версию действительно снижает риск по «иностранным словам». Но делать это вслепую опасно: можно случайно попасть на чужой товарный знак и уже получить претензии/суды. Мы сначала проверяем реестры, потом рекомендуем быстрый безопасный вариант."
+      question: "Что делать, если мой товарный знак зарегистрирован и содержит иностранные слова?",
+      answer: "Зарегистрированные товарные знаки получают определенную правовую защиту. Однако важно правильно оформить документы и учесть нюансы нового законодательства. Мы проанализируем ваш товарный знак и разработаем стратегию защиты, которая позволит минимизировать риски и продолжить легальное использование."
     },
     {
-      question: "Этикетки, состав, меню, ценники и маркетплейсы — это тоже под проверку?",
-      answer: "Да. На практике требования могут касаться всей информации, с которой сталкивается потребитель: описаний, характеристик, инструкций, состава, меню и т.д. Мы подсветим самые рискованные зоны и что править в первую очередь."
+      question: "Можно ли просто перевести иностранное слово на русский?",
+      answer: "Простой перевод не всегда является правильным решением. Необходимо учитывать фонетическое сходство, устоявшуюся практику использования, позицию контролирующих органов и множество других факторов. Неправильный подход может привести к потере узнаваемости бренда или все равно повлечь санкции. Мы поможем найти оптимальное решение для вашей ситуации."
     },
     {
-      question: "Если Роспатент откажет — что дальше?",
-      answer: "В пакете «под ключ» предусмотрены варианты гарантий: письма согласия (без ограничений по количеству), оспаривание в палате по патентным спорам и/или переподача обозначения за наш счёт — в зависимости от ситуации."
+      question: "Какие исключения предусмотрены законом?",
+      answer: "Закон предусматривает исключения для: зарегистрированных товарных знаков (при соблюдении определенных условий), общепринятых международных терминов и наименований, иностранных имен собственных, а также случаев, когда замена на русский аналог невозможна без искажения смысла. Однако применение каждого исключения требует юридического обоснования."
     },
     {
-      question: "Сколько времени занимает регистрация?",
-      answer: "По регламенту сроки могут доходить до 18,5 месяцев. Если время критично, есть ускоренный формат: ориентир 2–4 месяца (с доп. пошлиной). Мы подскажем, какой вариант рациональнее."
+      question: "Бесплатная проверка — это действительно бесплатно?",
+      answer: "Да, первичная проверка названия или сайта на риски полностью бесплатна и ни к чему вас не обязывает. Вы получите предварительную оценку рисков и рекомендации от квалифицированного юриста. Дальнейшее сотрудничество и стоимость услуг обсуждаются индивидуально в зависимости от сложности вашего случая."
+    },
+    {
+      question: "Что входит в отчет после проверки?",
+      answer: "После проверки вы получаете подробный отчет, который включает: анализ рисков для вашего конкретного случая, список выявленных проблемных элементов, оценку вероятности санкций, конкретные рекомендации по устранению рисков, варианты альтернативных решений и стратегию дальнейших действий."
     }
   ];
 
   return (
-    <section className="relative py-24 bg-white">
-      <div className="container mx-auto px-4 max-w-4xl">
-        {/* Section title */}
-        <div className="text-center mb-16">
-          <h2 className="font-['Montserrat'] font-bold text-4xl md:text-5xl text-[#002D62] mb-6">
-            Частые вопросы
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto px-4 max-w-[1240px]">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4AF37]/10 rounded-full mb-6">
+            <HelpCircle className="w-5 h-5 text-[#D4AF37]" />
+            <span className="text-sm font-semibold text-[#002D62]">Часто задаваемые вопросы</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002D62] mb-4">
+            Ответы на ваши вопросы
           </h2>
-          <p className="font-['Montserrat'] text-xl text-gray-600 mb-6">
-            коротко и по делу
+          <p className="text-lg sm:text-xl text-gray-600">
+            Все, что нужно знать о новом законе и наших услугах
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#D4AF37] to-[#50C878] mx-auto rounded-full" />
         </div>
 
-        {/* FAQ items */}
-        <div className="space-y-4">
+        {/* FAQ List */}
+        <div className="max-w-4xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <div
+            <FAQItem
               key={index}
-              className="backdrop-blur-sm bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
-            >
-              {/* Question button */}
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full text-left p-6 md:p-8 flex items-start gap-4 group"
-              >
-                <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  openIndex === index 
-                    ? 'bg-gradient-to-br from-[#D4AF37] to-[#E5C158]' 
-                    : 'bg-gray-100 group-hover:bg-gray-200'
-                }`}>
-                  {openIndex === index ? (
-                    <CheckCircle className="w-5 h-5 text-[#002D62]" />
-                  ) : (
-                    <HelpCircle className="w-5 h-5 text-gray-600" />
-                  )}
-                </div>
-                
-                <div className="flex-1">
-                  <h3 className="font-['Montserrat'] font-bold text-xl md:text-2xl text-[#002D62] leading-tight">
-                    {faq.question}
-                  </h3>
-                </div>
-
-                {/* Chevron */}
-                <div className={`flex-shrink-0 w-6 h-6 text-gray-400 transition-transform duration-300 ${
-                  openIndex === index ? 'rotate-180' : ''
-                }`}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </div>
-              </button>
-
-              {/* Answer */}
-              <div className={`overflow-hidden transition-all duration-300 ${
-                openIndex === index ? 'max-h-96' : 'max-h-0'
-              }`}>
-                <div className="px-6 md:px-8 pb-6 md:pb-8 pl-20 md:pl-24">
-                  <div className="pt-4 border-t border-gray-100">
-                    <p className="font-['Montserrat'] text-lg text-gray-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              question={faq.question}
+              answer={faq.answer}
+              isOpen={openIndex === index}
+              onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+            />
           ))}
         </div>
 
-        {/* Additional help */}
+        {/* Bottom CTA */}
         <div className="mt-12 text-center">
-          <div className="inline-block backdrop-blur-md bg-gradient-to-r from-[#002D62]/5 to-[#D4AF37]/5 border border-[#D4AF37]/30 rounded-2xl px-8 py-6">
-            <p className="font-['Montserrat'] text-lg text-gray-700">
-              Остались вопросы? Мы ответим при проверке вашего названия
-            </p>
-          </div>
+          <p className="text-gray-600 mb-6">
+            Не нашли ответ на свой вопрос?
+          </p>
+          <button
+            onClick={() => {
+              document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="px-8 py-4 bg-[#002D62] text-white font-semibold rounded-xl hover:bg-[#003870] transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
+          >
+            Получить бесплатную консультацию
+          </button>
         </div>
       </div>
     </section>

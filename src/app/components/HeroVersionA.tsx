@@ -1,11 +1,13 @@
 import React from "react";
 import { CheckCircle2, ShieldCheck, BadgeCheck } from "lucide-react";
 
+type IconType = React.ComponentType<{ className?: string }>;
+
 function TrustBadge({
   icon: Icon,
   text,
 }: {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: IconType;
   text: string;
 }) {
   return (
@@ -18,16 +20,8 @@ function TrustBadge({
 
 export function HeroVersionA() {
   return (
-    <>
-      {/* ВСТАВЬ ТУТ ВЕСЬ ТВОЙ HERO JSX (section ... ) */}
-    </>
-  );
-}
-
-export function Hero() {
-  return (
     <section className="relative overflow-hidden">
-      {/* фон как на макете: светлый + мягкий градиент */}
+      {/* Светлый фон как на макете */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-[#f6f4f2] to-[#efe9e4]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
@@ -66,19 +60,15 @@ export function Hero() {
             </div>
           </div>
 
-          {/* ПРАВАЯ КОЛОНКА (ВИЗУАЛ) */}
+          {/* ПРАВАЯ КОЛОНКА */}
           <div className="relative">
-            {/* мягкое свечение вокруг */}
             <div className="absolute -inset-6 rounded-[32px] bg-white/40 blur-2xl" />
-
             <div className="relative overflow-hidden rounded-[28px] bg-white/60 shadow-2xl ring-1 ring-black/5">
               <img
                 src="/hero-visual.png"
                 alt="Проверка на иностранные слова"
                 className="w-full h-auto object-cover"
               />
-
-              {/* легкая вуаль, чтобы как на макете было “мягче” */}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-white/10" />
             </div>
           </div>

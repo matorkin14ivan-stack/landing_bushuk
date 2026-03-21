@@ -1,3 +1,4 @@
+import React from "react";
 import { CheckCircle2, ShieldCheck, BadgeCheck } from "lucide-react";
 
 function TrustBadge({
@@ -12,6 +13,14 @@ function TrustBadge({
       <Icon className="h-4 w-4 text-slate-500" />
       <span>{text}</span>
     </div>
+  );
+}
+
+export function HeroVersionA() {
+  return (
+    <>
+      {/* ВСТАВЬ ТУТ ВЕСЬ ТВОЙ HERO JSX (section ... ) */}
+    </>
   );
 }
 

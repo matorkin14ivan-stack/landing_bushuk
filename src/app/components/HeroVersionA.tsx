@@ -20,15 +20,23 @@ function TrustBadge({
 
 export function HeroVersionA() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Светлый фон как на макете */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-[#f6f4f2] to-[#efe9e4]" />
+    <section className="relative overflow-hidden min-h-[75vh] flex items-center">
+      {/* Фоновая картинка на весь hero */}
+      <div className="absolute inset-0">
+        <img
+          src="/hero-visual.png"
+          alt=""
+          className="h-full w-full object-cover object-right"
+        />
+        <div className="absolute inset-0 bg-white/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* ЛЕВАЯ КОЛОНКА */}
-          <div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900 leading-[1.05]">
+<div className="grid items-center gap-12 lg:grid-cols-1">
+  {/* ЛЕВАЯ КОЛОНКА */}
+<div className="max-w-3xl">
+  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900 leading-[1.05]">
               Юридическая
               <br />
               проверка бизнеса
@@ -60,18 +68,7 @@ export function HeroVersionA() {
             </div>
           </div>
 
-          {/* ПРАВАЯ КОЛОНКА */}
-          <div className="relative">
-            <div className="absolute -inset-6 rounded-[32px] bg-white/40 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[28px] bg-white/60 shadow-2xl ring-1 ring-black/5">
-              <img
-                src="/hero-visual.png"
-                alt="Проверка на иностранные слова"
-                className="w-full h-auto object-cover"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-white/10" />
-            </div>
-          </div>
+        
         </div>
       </div>
     </section>

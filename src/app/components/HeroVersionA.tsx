@@ -34,8 +34,7 @@ className="h-full w-full object-cover object-[85%_center] scale-[1.18] contrast-
 <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/45 to-transparent" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
-<div className="grid items-center gap-12 lg:grid-cols-1">
+<div className="relative container mx-auto px-4 max-w-[1240px] pt-28 pb-16 sm:pt-32 sm:pb-20"><div className="grid items-center gap-12 lg:grid-cols-1">
   {/* ЛЕВАЯ КОЛОНКА */}
 <div className="max-w-3xl text-left">
   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900 text-left leading-[1.05]">

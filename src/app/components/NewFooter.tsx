@@ -34,17 +34,7 @@ export function NewFooter() {
             </div>
           </div>
 
-          {/* Right - Info */}
-          <div className="md:col-span-4">
-            <h4 className="font-semibold text-base mb-4">Информация</h4>
-            <div className="space-y-2 text-sm text-white/70">
-              <p>ИНН: 0000000000</p>
-              <p>ОГРН: 0000000000000</p>
-              <p>Патентный поверенный РФ</p>
-              <p>Рег. номер: 0000</p>
-            </div>
-          </div>
-        </div>
+    
 
         {/* Bottom */}
         <div className="pt-8 border-t border-white/10">

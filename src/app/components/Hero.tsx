@@ -21,8 +21,8 @@ export function Hero() {
       {/* фон как на макете: светлый + мягкий градиент */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-[#f6f4f2] to-[#efe9e4]" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+<div className="relative container mx-auto px-4 max-w-[1240px] py-10 sm:py-12 lg:py-14">
+  <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* ЛЕВАЯ КОЛОНКА */}
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900 leading-[1.05]">

@@ -43,13 +43,15 @@ export function NewFinalCTA() {
                 </p>
               </div>
               
-              {/* CTA Button */}
-              <button
-                onClick={scrollToTop}
-                className="w-full md:w-auto px-10 py-5 bg-[#002D62] text-white text-lg font-semibold rounded-xl hover:bg-[#003870] transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
-              >
-                Проверить бесплатно
-              </button>
+             {/* CTA Button */}
+<a
+  href="https://forms.yandex.ru/cloud/69b132c74936391437395c31/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full md:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#002D62] text-white text-lg font-semibold rounded-xl hover:bg-[#003870] transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
+>
+  Проверить бесплатно
+</a>
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ export function NewFooter() {
               
             </div>
           </div>
-
+</div>
     
 
         {/* Bottom */}

@@ -28,7 +28,7 @@ export function HeroVersionA() {
   alt=""
 className="h-full w-full object-cover object-[85%_center] scale-[1.18] contrast-105 saturate-105"/>
  {/* лёгкая общая вуаль */}
-<div className="absolute inset-0 bg-white/35" />
+<div className="absolute inset-0 bg-white/55" />
 
 {/* слева плотнее под текст, справа почти прозрачно */}
 <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/45 to-transparent" />

@@ -30,20 +30,7 @@ export function NewFooter() {
           <div className="md:col-span-3">
             <h4 className="font-semibold text-base mb-4">Контакты</h4>
             <div className="space-y-3">
-              <a 
-                href="mailto:info@bashukchichkanov.com" 
-                className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                Написать email
-              </a>
-              <a 
-                href="#" 
-                className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors"
-              >
-                <MessageCircle className="w-4 h-4" />
-                WhatsApp / Telegram
-              </a>
+              
             </div>
           </div>
 

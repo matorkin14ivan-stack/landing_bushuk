@@ -45,7 +45,7 @@ export function Hero() {
                 href="#contact-form"
                 className="inline-flex items-center justify-center rounded-xl bg-[#c43b3b] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-red-500/20 hover:bg-[#b23333] transition"
               >
-                Проверить сейчас
+                Проверить бесплатно
               </a>
             </div>
 

@@ -26,14 +26,12 @@ export function HeroVersionA() {
         <img
   src="/hero-visual.png"
   alt=""
-  className="h-full w-full object-cover object-right contrast-105 saturate-105"
-/>
+className="h-full w-full object-cover object-[85%_center] scale-[1.18] contrast-105 saturate-105"/>
  {/* лёгкая общая вуаль */}
 <div className="absolute inset-0 bg-white/35" />
 
 {/* слева плотнее под текст, справа почти прозрачно */}
 <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/45 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">

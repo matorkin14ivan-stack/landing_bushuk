@@ -1,4 +1,4 @@
-import { Shield, Mail, MessageCircle } from "lucide-react";
+import { Shield } from "lucide-react";
 
 export function NewFooter() {
   return (
@@ -12,29 +12,24 @@ export function NewFooter() {
                 <Shield className="w-6 h-6 text-[#002D62]" strokeWidth={2} />
               </div>
               <div>
-                <div className="font-semibold text-lg">
-                  Башук Чичканов
-                </div>
-                <div className="text-sm text-white/60">
-                  Патентные поверенные
-                </div>
+                <div className="font-semibold text-lg">Башук Чичканов</div>
+                <div className="text-sm text-white/60">Патентные поверенные</div>
               </div>
             </div>
             <p className="text-sm text-white/70 leading-relaxed">
-              Регистрация товарных знаков и защита интеллектуальной собственности. 
+              Регистрация товарных знаков и защита интеллектуальной собственности.
               Аккредитованные представители в Роспатенте.
             </p>
           </div>
 
           {/* Middle - Contacts */}
           <div className="md:col-span-3">
-            <h4 className="font-semibold text-base mb-4">Контакты</h4>
-            <div className="space-y-3">
-              
-            </div>
+            <h4 className="font-semibold text-base mb-4"> </h4>
+            <div className="space-y-3">{/* тут пусто — ок */}</div>
           </div>
-</div>
-    
+
+          {/* если были ещё колонки справа — вставляй их тут */}
+        </div> {/* ✅ ВОТ ЭТОГО ЗАКРЫТИЯ НЕ ХВАТАЛО */}
 
         {/* Bottom */}
         <div className="pt-8 border-t border-white/10">
@@ -53,8 +48,9 @@ export function NewFooter() {
           </div>
 
           <p className="text-xs text-white/50 mt-6 text-center md:text-left max-w-4xl">
-            Информация на сайте не является публичной офертой. Результат оказания услуг зависит 
-            от индивидуальных обстоятельств каждого случая и решения экспертизы Роспатента.
+            Информация на сайте не является публичной офертой. Результат оказания услуг
+            зависит от индивидуальных обстоятельств каждого случая и решения экспертизы
+            Роспатента.
           </p>
         </div>
       </div>

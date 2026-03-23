@@ -21,23 +21,32 @@ function TrustBadge({
 export function HeroVersionA() {
   return (
     <section className="relative overflow-hidden min-h-[75vh] flex items-center">
-      {/* Фоновая картинка на весь hero */}
+      {/* BACKGROUND */}
       <div className="absolute inset-0">
-        <img
-  src="/hero-visual.png"
-  alt=""
-className="h-full w-full object-cover object-[85%_center] scale-[1.18] contrast-105 saturate-105"/>
- {/* лёгкая общая вуаль */}
-<div className="absolute inset-0 bg-white/55" />
+        <picture className="block h-full w-full">
+          <source media="(max-width: 639px)" srcSet="/hero-visual-mobile.png" />
+          <img
+            src="/hero-visual.png"
+            alt=""
+            className="block h-full w-full object-cover object-[60%_30%] scale-[1.12] sm:object-[88%_center] sm:scale-[1.22] contrast-105 saturate-105"
+          />
+        </picture>
 
-{/* слева плотнее под текст, справа почти прозрачно */}
-<div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/45 to-transparent" />
+        {/* Общая вуаль */}
+        <div className="absolute inset-0 bg-white/55 sm:bg-white/20" />
+
+        {/* Мобилка: вертикальная подложка под текст */}
+        <div className="absolute inset-0 sm:hidden bg-gradient-to-b from-white/95 via-white/75 to-white/55" />
+
+        {/* Десктоп: мягкий свет слева */}
+        <div className="absolute inset-0 hidden sm:block bg-[radial-gradient(ellipse_at_left,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.70)_42%,rgba(255,255,255,0.25)_68%,rgba(255,255,255,0)_82%)]" />
       </div>
 
-<div className="relative container mx-auto px-4 max-w-[1240px] pt-28 pb-16 sm:pt-32 sm:pb-20"><div className="grid items-center gap-12 lg:grid-cols-1">
-  {/* ЛЕВАЯ КОЛОНКА */}
-<div className="max-w-3xl text-left">
-  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900 text-left leading-[1.05]">
+      {/* CONTENT */}
+      <div className="relative container mx-auto px-4 max-w-[1240px] pt-28 pb-16 sm:pt-32 sm:pb-20">
+        <div className="grid items-center gap-12 lg:grid-cols-1">
+          <div className="max-w-3xl text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900 leading-[1.05]">
               Юридическая
               <br />
               проверка бизнеса
@@ -45,13 +54,12 @@ className="h-full w-full object-cover object-[85%_center] scale-[1.18] contrast-
               на иностранные слова
             </h1>
 
-            <p className="mt-6 text-lg sm:text-xl text-slate-600 text-left leading-relaxed max-w-xl">
+            <p className="mt-6 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl">
               Новый закон — штрафы за нарушения.
               <br />
               Узнайте заранее о рисках и защитите свой бизнес
             </p>
 
-            {/* CTA */}
             <div className="mt-8">
               <a
                 href="#contact-form"
@@ -61,15 +69,12 @@ className="h-full w-full object-cover object-[85%_center] scale-[1.18] contrast-
               </a>
             </div>
 
-            {/* Trust badges */}
             <div className="mt-8 flex flex-wrap gap-3">
               <TrustBadge icon={CheckCircle2} text="Быстро и законно" />
               <TrustBadge icon={ShieldCheck} text="Конфиденциально" />
               <TrustBadge icon={BadgeCheck} text="Экспертный аудит" />
             </div>
           </div>
-
-        
         </div>
       </div>
     </section>

@@ -38,12 +38,22 @@ export function NewFooter() {
               © 2026 Башук Чичканов. Все права защищены
             </p>
             <div className="flex gap-6 text-sm text-white/60">
-              <a href="#" className="hover:text-white transition-colors">
-                Политика конфиденциальности
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Оферта
-              </a>
+              <a
+  href="https://www.bashukchichkanov.com/policy/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hover:text-white transition-colors"
+>
+  Политика конфиденциальности
+</a>
+              <a
+  href="https://www.bashukchichkanov.com/agree_policy/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hover:text-white transition-colors"
+>
+  Оферта
+</a>
             </div>
           </div>
 

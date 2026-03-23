@@ -28,18 +28,18 @@ export function HeroVersionA() {
           <img
             src="/hero-visual.png"
             alt=""
-            className="block h-full w-full object-cover object-[60%_30%] scale-[1.12] sm:object-[88%_center] sm:scale-[1.22] contrast-105 saturate-105"
+  className="block h-full w-full object-cover object-[60%_30%] scale-[1.12] opacity-90 sm:object-[88%_center] sm:scale-[1.22] sm:opacity-100 contrast-105 saturate-105"
           />
         </picture>
 
         {/* Общая вуаль */}
         <div className="absolute inset-0 bg-white/55 sm:bg-white/20" />
 
-        {/* Мобилка: вертикальная подложка под текст */}
-        <div className="absolute inset-0 sm:hidden bg-gradient-to-b from-white/95 via-white/75 to-white/55" />
+    {/* Мобилка: подложка под текст, но НЕ “в ноль белая” */}
+<div className="absolute inset-0 sm:hidden bg-gradient-to-b from-white/80 via-white/45 to-white/10" />
 
-        {/* Десктоп: мягкий свет слева */}
-        <div className="absolute inset-0 hidden sm:block bg-[radial-gradient(ellipse_at_left,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.70)_42%,rgba(255,255,255,0.25)_68%,rgba(255,255,255,0)_82%)]" />
+{/* Десктоп: мягкий свет слева */}
+<div className="absolute inset-0 hidden sm:block bg-[radial-gradient(ellipse_at_left,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.70)_42%,rgba(255,255,255,0.25)_68%,rgba(255,255,255,0)_82%)]" />
       </div>
 
       {/* CONTENT */}

@@ -1,44 +1,16 @@
 <!doctype html>
 <!--
-ОБНОВЛЕНИЕ ДЛЯ GITHUB PAGES: форма подписки, 21.10.2026.
-
-Этот файл загружается как index.html вместо существующего файла в том же месте
-репозитория. Изображение, стили и код уже внутри файла. CNAME и домен менять не нужно.
-
-ПЕРЕД ВКЛЮЧЕНИЕМ СБОРА:
-1. В Sendsay откройте «Сайт → Формы», создайте форму подписки и отдельный список.
-   Настройте письмо со ссылкой подтверждения подписки (Double opt-in).
-2. Добавьте в форму email и текстовое поле для записи согласий. Поле должно вмещать
-   минимум 12 000 знаков и действительно сохраняться в анкете-форме. Код поля возьмите
-   из структуры формы, а не из её видимого названия. Он указывается в evidenceField.
-3. Получите публичный адрес формы вида https://sendsay.ru/form/АККАУНТ/ФОРМА/.
-   Найдите в этом файле SUBSCRIPTION_CONFIG и заполните formUrl, evidenceField,
-   полное ФИО / наименование оператора, адрес и необходимые реквизиты. Сверьте данные
-   обработчика с договором. Секретный API-ключ, пароль или токен сюда не вставляются.
-4. Проверьте тексты трёх документов под свою фактическую деятельность, сроки,
-   договор с обработчиком, обязанности оператора и использование GitHub Pages.
-   Этот HTML сам по себе не подтверждает соблюдение всех юридических требований.
-5. После настройки замените enabled: false на enabled: true. До настройки форма
-   не передаёт данные, кнопка подписки отключена, посетитель видит честный статус.
-6. Проверьте полный путь на собственном адресе: отправка формы → письмо → переход
-   по ссылке → подтверждённый статус в Sendsay. До перехода статус неподтверждённый.
-   В анкете должны сохраниться оба согласия, их полный текст и версия. Время браузера
-   в записи является вспомогательным; нужны также серверные записи о приёме заявки
-   и подтверждении адреса в Sendsay. Убедитесь, что они доступны для модерации.
-7. В каждое рекламное письмо добавьте рабочую отписку средствами Sendsay. Отправляйте
-   только подтвердившим подписку. Новая форма не подтверждает спарсенную базу автоматически.
-
-Технические документы (проверены 21.10.2026):
-https://docs.sendsay.ru/sendsay-api/how-to-use-api-form/
-https://sendsay.ru/api/apiform.html
-https://docs.sendsay.ru/site/forms/signup-forms/
-https://docs.sendsay.ru/faq/moderation/
-https://sendsay.ru/about/rekvizity
-
-Проверка: синтаксис JS, локальный браузер, отдельные согласия, неактивная конфигурация,
-локальная имитация приёма/ошибки, мобильная ширина. Реальный аккаунт Sendsay и доставка
-письма не проверены: публичный адрес вашей формы и реквизиты оператора не предоставлены.
+МАКЕТ ИНТЕРФЕЙСА ДЛЯ GITHUB PAGES, 21.10.2026.
+Загрузите как index.html в то же место репозитория. Ресурсы встроены.
+Попап «Вы успешно подписаны!» — моделируемое состояние интерфейса.
+Отправки, базы подписчиков и регистрации согласий здесь нет.
+Этот макет не является подтверждением существования подписчиков или их согласий.
+Политика на странице отражает фактический локальный режим работы формы.
+Перед реальным сбором заполните реквизиты оператора, подключите сервис,
+подтверждение адреса, хранение согласий и рабочую отписку.
 -->
+
+
 
 <!-- GitHub Pages: upload this file as index.html to the repository root. -->
 <html lang="ru">
@@ -270,6 +242,23 @@ figcaption{font-size:10px;line-height:1.7;color:var(--muted);border-top:1px soli
 @media(max-width:1000px){.subscription-panel{gap:32px;padding:32px}.subscription-copy h2{font-size:30px}.subscription-form{padding:23px}}
 @media(max-width:680px){.subscription-section{padding-bottom:55px}.subscription-panel{grid-template-columns:1fr;padding:24px 20px;gap:27px;border-radius:18px}.subscription-copy h2{font-size:30px}.subscription-form{padding:22px 18px}.subscription-copy>p:not(.eyebrow){max-width:none}.subscription-consent{font-size:12px}.subscription-points{gap:9px;margin-top:18px}.legal-dialog-header{padding:21px 20px 16px}.legal-body{padding:20px}.legal-dialog h2{font-size:21px}.footer-legal{gap:12px}}
 
+  .demo-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid #c4d8ce;border-radius:99px;padding:5px 10px;font-size:9px;line-height:1.5;font-weight:600;text-transform:uppercase;letter-spacing:.65px;color:var(--teal-dark);background:#eff6f1}
+.subscription-form legend{margin-bottom:10px}
+.subscription-form .demo-badge{margin:0 0 18px}
+.legal-template-note{padding:14px 16px;border:1px solid #d5e1d8;border-radius:9px;background:#eaf2ec;color:#42665f;font-size:12px;line-height:1.8;margin-bottom:20px}
+.legal-dialog:not([open]){display:none}
+.submission-dialog{max-width:480px}
+.submission-dialog .legal-dialog-header{border-bottom:0;align-items:center;padding-bottom:0}
+.submission-dialog-content{padding:22px 34px 34px;text-align:center}
+.submission-checkmark{display:grid;place-items:center;width:66px;height:66px;margin:0 auto 23px;border-radius:50%;background:#e0eee5;border:1px solid #bed7ca;color:var(--teal-dark)}
+.submission-checkmark svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.submission-dialog-content h2{font-size:33px;line-height:1.2;letter-spacing:-1px}
+.submission-dialog-content p{font-size:13px;color:var(--muted);line-height:1.8;margin-top:18px}
+.submission-dialog-content .button{width:100%;margin-top:25px;justify-content:space-between}
+@media(max-width:680px){.demo-badge{font-size:9px}.submission-dialog-content{padding:20px 23px 27px}.submission-dialog-content h2{font-size:30px}}
+
+  .submission-dialog .legal-dialog-header{justify-content:flex-end}
+.subscription-form legend{margin-bottom:19px}
   </style>
 </head>
 <body>
@@ -413,49 +402,103 @@ figcaption{font-size:10px;line-height:1.7;color:var(--muted);border-top:1px soli
           <p>Разборы карточек врачей, примеры работы с ПроДокторов и предложения по продвижению медицинских клиник.</p>
           <ul class="subscription-points">
             <li>Практические материалы по привлечению записей</li>
-            <li>Подписка после подтверждения адреса</li>
-            <li>Отказ от рассылки в каждом письме</li>
+            <li>Отдельное согласие на рекламные письма</li>
+            <li>Условия подписки доступны до заполнения формы</li>
           </ul>
         </div>
         <form class="subscription-form" id="subscription-form" novalidate aria-describedby="subscription-help subscription-message">
           <fieldset id="subscription-fields">
             <legend>Подписаться на письма</legend>
             <label class="subscription-label" for="subscriber-email">Ваш email</label>
-            <input class="subscription-input" id="subscriber-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="name@clinic.ru" required aria-describedby="subscription-help">
-            <div class="subscription-honeypot" aria-hidden="true"><label for="subscriber-website">Оставьте это поле пустым</label><input id="subscriber-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <input class="subscription-input" id="subscriber-email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="name@clinic.ru" required aria-describedby="subscription-help">
             <div class="subscription-consents">
               <div class="subscription-consent">
-                <input id="consent-personal-data" name="consent_personal_data" type="checkbox" value="yes" required>
+                <input id="consent-personal-data" type="checkbox" value="yes" required>
                 <div><label for="consent-personal-data">Даю согласие на обработку моего email для оформления и обслуживания подписки.</label> <button class="legal-trigger" type="button" data-legal-open="personal-data-consent">Текст согласия</button></div>
               </div>
               <div class="subscription-consent">
-                <input id="consent-marketing" name="consent_marketing" type="checkbox" value="yes" required>
-                <div><label for="consent-marketing">Хочу получать от <span data-operator-short>Ивана</span> по email кейсы, материалы и рекламные предложения по продвижению медицинских клиник.</label> <button class="legal-trigger" type="button" data-legal-open="marketing-consent">Условия рассылки</button></div>
+                <input id="consent-marketing" type="checkbox" value="yes" required>
+                <div><label for="consent-marketing">Хочу получать от Ивана по email кейсы, материалы и рекламные предложения по продвижению медицинских клиник.</label> <button class="legal-trigger" type="button" data-legal-open="marketing-consent">Условия рассылки</button></div>
               </div>
             </div>
-            <button class="button button-primary subscription-submit" type="submit" id="subscription-submit" disabled><span id="subscription-button-label">Подписаться</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
-            <p class="subscription-note" id="subscription-help">После отправки заявки потребуется подтвердить подписку по ссылке из письма. До подтверждения рекламные письма не отправляются.</p>
+            <button class="button button-primary subscription-submit" type="submit" id="subscription-submit" disabled><span>Подписаться</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+            <p class="subscription-note" id="subscription-help">Ознакомьтесь с условиями рассылки и политикой обработки данных перед заполнением формы.</p>
           </fieldset>
-          <p class="subscription-message" id="subscription-message" role="status" aria-live="polite" aria-atomic="true">Приём подписок временно недоступен. По вопросам материалов можно <a href="mailto:matorkin14ivan@gmail.com" style="text-decoration:underline">написать Ивану</a>.</p>
-          <button class="legal-trigger subscription-retry" type="button" id="subscription-again" hidden>Указать другой адрес</button>
+          <p class="subscription-message" id="subscription-message" role="status" aria-live="polite" aria-atomic="true"></p>
           <button class="legal-trigger subscription-legal-link" type="button" data-legal-open="privacy-policy">Политика обработки персональных данных</button>
-          <noscript><p class="subscription-note">Для подписки необходим JavaScript. По вопросам материалов: <a href="mailto:matorkin14ivan@gmail.com">matorkin14ivan@gmail.com</a>.</p></noscript>
+          <noscript><p class="subscription-note">Для проверки формы и открытия окон нужен JavaScript. Связаться с автором: <a href="mailto:matorkin14ivan@gmail.com">matorkin14ivan@gmail.com</a>.</p></noscript>
         </form>
       </div>
     </section>
 
-  <dialog class="legal-dialog" id="privacy-policy" aria-labelledby="privacy-policy-title">
-    <div class="legal-dialog-header"><h2 id="privacy-policy-title">Политика обработки персональных данных</h2><button class="legal-close" type="button" data-legal-close aria-label="Закрыть политику">×</button></div>
-    <div class="legal-body" data-document="privacy"></div>
-  </dialog>
-  <dialog class="legal-dialog" id="personal-data-consent" aria-labelledby="personal-data-consent-title">
-    <div class="legal-dialog-header"><h2 id="personal-data-consent-title">Согласие на обработку персональных данных</h2><button class="legal-close" type="button" data-legal-close aria-label="Закрыть согласие">×</button></div>
-    <div class="legal-body" data-document="personal"></div>
-  </dialog>
-  <dialog class="legal-dialog" id="marketing-consent" aria-labelledby="marketing-consent-title">
-    <div class="legal-dialog-header"><h2 id="marketing-consent-title">Согласие на получение рекламных писем</h2><button class="legal-close" type="button" data-legal-close aria-label="Закрыть условия рассылки">×</button></div>
-    <div class="legal-body" data-document="marketing"></div>
-  </dialog>
+    <dialog class="legal-dialog" id="personal-data-consent" aria-labelledby="personal-data-consent-title">
+      <div class="legal-dialog-header"><h2 id="personal-data-consent-title">Согласие на обработку персональных данных</h2><button class="legal-close" type="button" data-legal-close aria-label="Закрыть согласие">×</button></div>
+      <div class="legal-body">
+        <p class="legal-version">Редакция от 21 октября 2026 года</p>
+        <p>Я, владелец указанного в форме адреса электронной почты, добровольно, своей волей и в своём интересе даю <strong>[полное ФИО или наименование оператора]</strong>, адрес: <strong>[адрес оператора]</strong>, email: <a href="mailto:matorkin14ivan@gmail.com">matorkin14ivan@gmail.com</a>, согласие на обработку моих персональных данных.</p>
+        <h3>Цель обработки</h3>
+        <p>Оформление и обслуживание подписки на материалы и предложения по продвижению медицинских клиник, подтверждение принадлежности email, учёт согласий и отказов, рассмотрение обращений пользователя.</p>
+        <h3>Состав данных</h3>
+        <p>Адрес электронной почты; сведения о предоставлении и отзыве согласия; версия текста, источник и время предоставления согласия; сведения о подтверждении адреса — при наличии соответствующей записи.</p>
+        <h3>Действия с данными</h3>
+        <p>Сбор, запись, систематизация, накопление, хранение, уточнение, извлечение, использование для указанной цели, предоставление привлечённому обработчику, блокирование, удаление и уничтожение. Обработка может выполняться с использованием средств автоматизации. Публикация email и передача базы для самостоятельной рекламы третьих лиц в данное согласие не входят.</p>
+        <h3>Срок действия и отзыв</h3>
+        <p>Согласие действует до его отзыва, прекращения подписки либо достижения цели обработки. Отозвать его можно обращением на <a href="mailto:matorkin14ivan@gmail.com?subject=Отзыв%20согласия">matorkin14ivan@gmail.com</a>. После отзыва обработка прекращается, за исключением случаев, когда у оператора есть иное применимое основание.</p>
+        <p>Согласие на обработку данных предоставляется отдельно от согласия на рекламные сообщения. Порядок фактической обработки описан в политике обработки персональных данных.</p>
+      </div>
+    </dialog>
+
+    <dialog class="legal-dialog" id="marketing-consent" aria-labelledby="marketing-consent-title">
+      <div class="legal-dialog-header"><h2 id="marketing-consent-title">Условия рассылки</h2><button class="legal-close" type="button" data-legal-close aria-label="Закрыть условия рассылки">×</button></div>
+      <div class="legal-body">
+        <p class="legal-version">Редакция от 21 октября 2026 года</p>
+        <h3>Отправитель</h3>
+        <p><strong>[Полное ФИО или наименование отправителя]</strong>, автор сайта audit-bisnesa.ru. Контактный email: <a href="mailto:matorkin14ivan@gmail.com">matorkin14ivan@gmail.com</a>.</p>
+        <h3>Какие письма предусмотрены</h3>
+        <p>Кейсы, практические материалы, разборы и рекламные предложения об услугах по продвижению медицинских клиник, включая продвижение на ПроДокторов.</p>
+        <h3>Согласие на получение писем</h3>
+        <p>Отмечая отдельное поле согласия, пользователь выражает желание получать информационные и рекламные письма указанной тематики на самостоятельно указанный email. Согласие относится только к названному отправителю и описанной тематике.</p>
+        <p>Фактические рекламные отправки допускаются после получения подтверждаемого согласия владельца адреса. Посещение сайта, отсутствие отказа и запрос одного материала сами по себе не являются подпиской на дальнейшие рекламные письма.</p>
+        <h3>Отказ от рассылки</h3>
+        <p>Отказаться можно в любой момент по рабочей ссылке в рекламном письме либо через обращение на <a href="mailto:matorkin14ivan@gmail.com?subject=Отписка%20от%20рассылки">matorkin14ivan@gmail.com</a>. После отказа рекламные отправки прекращаются.</p>
+        <h3>Обращение за разбором</h3>
+        <p>Подписка на рекламные письма не является условием получения ответа на обращение. Для обсуждения клиники можно написать напрямую по контактному email.</p>
+      </div>
+    </dialog>
+
+    <dialog class="legal-dialog" id="privacy-policy" aria-labelledby="privacy-policy-title">
+      <div class="legal-dialog-header"><h2 id="privacy-policy-title">Политика обработки персональных данных</h2><button class="legal-close" type="button" data-legal-close aria-label="Закрыть политику">×</button></div>
+      <div class="legal-body">
+        <p class="legal-version">Редакция от 21 октября 2026 года · audit-bisnesa.ru</p>
+        <h3>1. Оператор и контакт</h3>
+        <p>Оператор: <strong>[полное ФИО или наименование]</strong>. Адрес: <strong>[адрес оператора]</strong>. Контакт для обращений: <a href="mailto:matorkin14ivan@gmail.com">matorkin14ivan@gmail.com</a>.</p>
+        <h3>2. Обработка на этой странице</h3>
+        <p>Введённый email используется в текущем окне браузера для проверки заполнения формы. Эта версия формы не передаёт адреса в сервис рассылок и не записывает их в базу подписчиков. После заполнения поля очищаются. Данные формы не сохраняются в localStorage, sessionStorage или cookies.</p>
+        <p>Сайт размещён на GitHub Pages. Инфраструктура хостинга может обрабатывать технические сведения запросов к страницам по своим условиям. Форма не добавляет системы рекламного отслеживания.</p>
+        <h3>3. Состав данных для подписки</h3>
+        <p>При подключении реального сбора могут обрабатываться email, сведения о согласиях и отказах, версии документов, источник и время подписки, сведения о подтверждении адреса. Сведения о здоровье, платёжные и биометрические данные через эту форму не запрашиваются.</p>
+        <h3>4. Цели и основания</h3>
+        <p>Оформление и обслуживание добровольной подписки, направление согласованных материалов, учёт согласий и отказов, рассмотрение обращений. Основание — согласие пользователя либо иное применимое основание. Для рекламных писем требуется отдельное подтверждаемое согласие.</p>
+        <h3>5. Действия и передача данных</h3>
+        <p>Для указанных целей могут выполняться сбор, запись, систематизация, накопление, хранение, уточнение, извлечение, использование, предоставление обработчику, блокирование, удаление и уничтожение. До подключения фактического сбора оператор указывает привлечённого обработчика, его реквизиты, состав передаваемых данных и условия обработки по поручению.</p>
+        <h3>6. Сроки хранения</h3>
+        <p>При реальной подписке данные используются в пределах необходимого для заявленных целей срока, до отказа, отзыва согласия или прекращения цели обработки. Сроки хранения записей о согласиях и отказах определяются с учётом применимых оснований. Для текущей формы серверное хранение введённых адресов не осуществляется.</p>
+        <h3>7. Права пользователя</h3>
+        <p>Можно запросить сведения об обработке, исправление, блокирование или удаление данных, отозвать согласие и отказаться от рекламных писем. Для обращения используется email <a href="mailto:matorkin14ivan@gmail.com">matorkin14ivan@gmail.com</a>. Обращения рассматриваются в применимые установленные законом сроки.</p>
+        <h3>8. Защита данных</h3>
+        <p>Перед подключением реального сбора оператор определяет необходимые правовые, организационные и технические меры, условия доступа и хранения и проверяет используемые сервисы. Обработка должна соответствовать опубликованным целям и условиям.</p>
+      </div>
+    </dialog>
+
+    <dialog class="legal-dialog submission-dialog" id="subscription-success" aria-labelledby="subscription-success-title" aria-describedby="subscription-success-description">
+      <div class="legal-dialog-header"><button class="legal-close" type="button" data-legal-close aria-label="Закрыть подтверждение">×</button></div>
+      <div class="submission-dialog-content">
+        <span class="submission-checkmark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m8 16 5 5 11-11"/></svg></span>
+        <h2 id="subscription-success-title">Вы успешно подписаны!</h2>
+        <p id="subscription-success-description">Спасибо за интерес к материалам о продвижении медицинских клиник.</p>
+        <button class="button button-primary" type="button" data-legal-close>Понятно <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+      </div>
+    </dialog>
 
   </main>
 
@@ -514,164 +557,50 @@ figcaption{font-size:10px;line-height:1.7;color:var(--muted);border-top:1px soli
 
   </script>
   <script>
-/*
-  НАСТРОЙКА ВЛАДЕЛЬЦЕМ САЙТА — без серверной части и секретных API-ключей.
-  1. Создайте в Sendsay форму подписки с Double opt-in и полем email.
-  2. Добавьте многострочное текстовое поле для записи согласий (не короче 12 000 знаков).
-     Скопируйте его код из структуры API вашей формы; он должен реально сохраняться.
-  3. Заполните formUrl и evidenceField ниже. formUrl имеет вид
-     https://sendsay.ru/form/КОД_АККАУНТА/КОД_ФОРМЫ/ — это публичный адрес, не API-ключ.
-  4. Заполните реквизиты оператора и обработчика из вашего договора, проверьте документы,
-     хранение записей о согласиях, серверные журналы и письмо подтверждения в Sendsay.
-  5. Только после этого замените enabled: false на enabled: true.
-     Без этих настроек данные НЕ передаются и фиктивная подписка НЕ создаётся.
-  Не публикуйте здесь пароль, секретный API-ключ или токен Sendsay.
+/* Демонстрационная форма: только локальная проверка полей и попап.
+   Адреса и согласия не передаются, не сохраняются и не оформляют подписку.
+   Для реального сбора используйте отдельную подключённую версию формы.
 */
-const SUBSCRIPTION_CONFIG = Object.freeze({
-  enabled: false,
-  formUrl: '',
-  evidenceField: '',
-  operatorName: '',       // Полное ФИО либо полное наименование юридического лица / ИП.
-  operatorAddress: '',    // Контактный / юридический адрес оператора.
-  operatorDetails: '',    // Дополнительные реквизиты, если применимо.
-  operatorEmail: 'matorkin14ivan@gmail.com',
-  senderShortName: 'Ивана',
-  processorName: 'АО «Интернет-проекты», ИНН 7811090248', // Сверьте с вашим договором.
-  processorAddress: '197110, г. Санкт-Петербург, вн. тер. г. муниципальный округ Чкаловское, пр-кт Левашовский, д. 11/7, стр. 4, Ч.П. 1-Н, помещ. 157',
-  documentsVersion: '2026-10-21.1'
-});
-
 (() => {
   'use strict';
-  const config = SUBSCRIPTION_CONFIG;
   const form = document.getElementById('subscription-form');
-  const fields = document.getElementById('subscription-fields');
   const email = document.getElementById('subscriber-email');
-  const pd = document.getElementById('consent-personal-data');
-  const ads = document.getElementById('consent-marketing');
+  const personal = document.getElementById('consent-personal-data');
+  const marketing = document.getElementById('consent-marketing');
   const submit = document.getElementById('subscription-submit');
-  const submitLabel = document.getElementById('subscription-button-label');
   const message = document.getElementById('subscription-message');
-  const again = document.getElementById('subscription-again');
-  let endpoint;
-  try { endpoint = new URL(config.formUrl); } catch {}
-  const validEndpoint = endpoint && endpoint.origin === 'https://sendsay.ru' && /^\/form\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\/$/.test(endpoint.pathname) && !endpoint.search && !endpoint.hash && !endpoint.username && !endpoint.password;
-  const validField = typeof config.evidenceField === 'string' && /^[a-zA-Z0-9_]{1,160}$/.test(config.evidenceField) && !['_member_email','_member_id','__proto__','constructor','prototype'].includes(config.evidenceField);
-  const ownerReady = [config.operatorName,config.operatorAddress,config.processorName,config.processorAddress].every(v => typeof v === 'string' && v.trim().length > 2 && !/[<>\[\]]/.test(v));
-  const ready = config.enabled === true && Boolean(validEndpoint) && Boolean(validField) && ownerReady;
-  let busy = false;
-  const setMessage = (text, state = '') => { message.textContent = text; message.dataset.state = state; };
-  const unavailable = () => setMessage('Приём подписок временно недоступен. По вопросам материалов напишите: ' + config.operatorEmail + '.');
-  const updateButton = () => { submit.disabled = !ready || busy || !email.validity.valid || !pd.checked || !ads.checked; };
-  document.querySelectorAll('[data-operator-short]').forEach(node => { node.textContent = config.senderShortName; });
+  const success = document.getElementById('subscription-success');
+  const updateButton = () => { submit.disabled = !email.validity.valid || !personal.checked || !marketing.checked; };
 
-  // Все юридические тексты создаются через textContent: конфигурация не исполняет HTML.
-  const documents = {
-    privacy: [
-      ['Версия ' + config.documentsVersion + ' · Сайт audit-bisnesa.ru', 'version'],
-      ['1. Оператор'],
-      [config.operatorName + (config.operatorDetails ? ', ' + config.operatorDetails : '') + '. Адрес: ' + config.operatorAddress + '. Email для обращений: ' + config.operatorEmail + '.', 'p'],
-      ['2. Данные и цель обработки'],
-      ['Для добровольной подписки обрабатываются email, факт и содержание отдельных согласий, их версии, адрес страницы без параметров, время подачи заявки и сведения о подтверждении подписки. Сервис обработки также получает технические сведения сетевого запроса. Цель — оформление и обслуживание подписки, отправка запрошенных материалов и рекламных предложений по продвижению медицинских клиник, учёт согласий и отказов.', 'p'],
-      ['3. Основания и операции'],
-      ['Основание обработки для подписки — отдельное добровольное согласие пользователя. Отдельно запрашивается согласие на рекламные сообщения. Операции: сбор, запись, систематизация, хранение, уточнение, использование, предоставление обработчику для указанной цели, блокирование и удаление. Применяется автоматизированная обработка.', 'p'],
-      ['4. Сервис обработки'],
-      ['Заявка направляется непосредственно в сервис Sendsay. Обработчик по поручению оператора: ' + config.processorName + ', адрес: ' + config.processorAddress + '. Подтверждённой подписка становится после перехода владельца email по индивидуальной ссылке. Оператор не публикует адреса и не передаёт базу для самостоятельной рекламы третьих лиц.', 'p'],
-      ['5. Срок и прекращение'],
-      ['Данные подписки используются до отказа от рассылки, отзыва согласия либо прекращения цели подписки — в зависимости от того, что наступит раньше. После прекращения подписки рекламные отправки прекращаются. Дальнейшее хранение необходимых записей об отказе или согласии допускается только при наличии отдельного применимого основания и в необходимом объёме.', 'p'],
-      ['6. Права и обращения'],
-      ['Можно запросить сведения об обработке, исправление или удаление данных и отозвать согласие по email ' + config.operatorEmail + '. Для отказа от рекламных писем используется ссылка отписки в каждом выпуске либо обращение на этот email. Оператор рассматривает обращения в применимые установленные законом сроки.', 'p'],
-      ['7. Работа сайта'],
-      ['Статические страницы размещаются на GitHub Pages. Инфраструктура хостинга может обрабатывать технические данные обращения к сайту по своим условиям. Эта форма не записывает введённый email в localStorage, не помещает его в адресную строку и не добавляет системы рекламного отслеживания. Передача формы идёт по HTTPS напрямую в Sendsay.', 'p']
-    ],
-    personal: [
-      ['Версия ' + config.documentsVersion, 'version'],
-      ['Я добровольно даю ' + config.operatorName + ' (адрес: ' + config.operatorAddress + '; email: ' + config.operatorEmail + ') согласие на обработку моего email и сведений о заявке, отдельных согласиях и их подтверждении для оформления и обслуживания подписки на материалы и предложения по продвижению медицинских клиник.', 'p'],
-      ['Разрешённые действия: сбор, запись, систематизация, хранение, уточнение, использование для указанной цели, предоставление обработчику Sendsay — ' + config.processorName + ' (' + config.processorAddress + '), блокирование и удаление. Обработка автоматизированная. Публикация моего адреса и его продажа не входят в данное согласие.', 'p'],
-      ['Согласие действует до его отзыва, прекращения подписки или достижения указанной цели. Отозвать его можно письмом на ' + config.operatorEmail + '. Согласие предоставляется отдельной галочкой в форме. Получение рекламных сообщений регулируется другим, отдельным согласием.', 'p']
-    ],
-    marketing: [
-      ['Версия ' + config.documentsVersion, 'version'],
-      ['Я добровольно соглашаюсь получать от ' + config.operatorName + ' по указанному мной email кейсы, практические материалы и рекламные предложения об услугах по продвижению медицинских клиник, включая продвижение на ПроДокторов.', 'p'],
-      ['Согласие даётся отдельной галочкой и подтверждается владельцем адреса по индивидуальной ссылке в письме. До подтверждения рекламные выпуски не направляются. Согласие относится только к названному отправителю и описанной тематике.', 'p'],
-      ['Согласие действует до отказа от рассылки. Отказ доступен по ссылке в каждом рекламном письме или через обращение на ' + config.operatorEmail + '. После отказа рекламные отправки прекращаются. Запрос одного материала или разбора сам по себе не означает согласия на другие рекламные письма.', 'p']
-    ]
-  };
-  const snapshots = {};
-  document.querySelectorAll('[data-document]').forEach(body => {
-    const name = body.dataset.document;
-    const rows = ownerReady ? documents[name] : [
-      ['Приём заявок на подписку сейчас не ведётся.', 'p'],
-      ['По вопросам материалов и обработки данных можно обратиться к Ивану: ' + config.operatorEmail + '.', 'p']
-    ];
-    rows.forEach(([text, kind]) => { const p = document.createElement(kind === undefined ? 'h3' : 'p'); p.textContent = text; if(kind === 'version') p.className = 'legal-version'; body.append(p); });
-    snapshots[name] = rows.map(([text]) => text).join('\n\n');
-  });
-
-  // Нативный dialog поддерживает Tab, Escape и возврат фокуса.
   document.querySelectorAll('[data-legal-open]').forEach(button => {
-    button.addEventListener('click', () => { const dialog = document.getElementById(button.dataset.legalOpen); if(dialog && typeof dialog.showModal === 'function') dialog.showModal(); });
+    button.addEventListener('click', () => {
+      const dialog = document.getElementById(button.dataset.legalOpen);
+      if(dialog && typeof dialog.showModal === 'function') dialog.showModal();
+    });
   });
   document.querySelectorAll('.legal-dialog').forEach(dialog => {
-    dialog.querySelector('[data-legal-close]').addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', event => { if(event.target !== dialog) return; const rect = dialog.getBoundingClientRect(); if(event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); });
+    dialog.querySelectorAll('[data-legal-close]').forEach(button => button.addEventListener('click', () => dialog.close()));
+    dialog.addEventListener('click', event => {
+      if(event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      if(event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+    });
   });
-  [email,pd,ads].forEach(input => input.addEventListener('input', updateButton));
-  if(ready) setMessage('');
-  updateButton();
-
-  form.addEventListener('submit', async event => {
+  success.addEventListener('close', () => email.focus());
+  [email,personal,marketing].forEach(input => {
+    input.addEventListener('input', updateButton);
+    input.addEventListener('change', updateButton);
+  });
+  form.addEventListener('reset', () => { setTimeout(updateButton,0); });
+  form.addEventListener('submit', event => {
     event.preventDefault();
-    if(busy) return;
-    if(!ready) { unavailable(); return; }
-    if(!form.reportValidity()) return;
-    if(!pd.checked || !ads.checked) { setMessage('Для подписки отметьте оба отдельных согласия.', 'error'); return; }
-    if(document.getElementById('subscriber-website').value) { setMessage('Заявка не отправлена. Проверьте поля формы.', 'error'); return; }
-    busy = true; fields.disabled = true; form.setAttribute('aria-busy','true'); updateButton(); submitLabel.textContent = 'Отправляем…'; setMessage('');
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(),15000);
-    try {
-      const evidence = {
-        stage:'subscription_request',
-        document_version:config.documentsVersion,
-        source_page:location.origin + location.pathname,
-        submitted_at_client:new Date().toISOString(),
-        personal_data_consent:true,
-        marketing_consent:true,
-        personal_data_consent_text:snapshots.personal,
-        marketing_consent_text:snapshots.marketing
-      };
-      const payload = Object.create(null);
-      payload._member_email = email.value.trim();
-      payload[config.evidenceField] = JSON.stringify(evidence);
-      // До передачи email проверяем, что поле доказательства существует и вмещает
-      // полный снимок обоих согласий. Иначе заявка не отправляется.
-      const schemaResponse = await fetch(endpoint.href,{
-        method:'GET',mode:'cors',credentials:'omit',redirect:'error',referrerPolicy:'no-referrer',
-        headers:{'Accept':'application/json'},signal:controller.signal
-      });
-      const schema = await schemaResponse.json();
-      const evidenceSchema = schema && schema.obj && Array.isArray(schema.obj.fields) && schema.obj.fields.find(field => field.name === config.evidenceField);
-      if(!schemaResponse.ok || !schema.obj || String(schema.obj.state) !== '1' || !evidenceSchema || evidenceSchema.type !== 'text') throw new Error('schema_error');
-      const maximum = Number(evidenceSchema.max_length);
-      if(!Number.isFinite(maximum) || maximum < payload[config.evidenceField].length) throw new Error('evidence_too_long');
-      const response = await fetch(endpoint.href,{
-        method:'POST',mode:'cors',credentials:'omit',redirect:'error',referrerPolicy:'no-referrer',
-        headers:{'Accept':'application/json','Content-Type':'application/json'},
-        body:JSON.stringify(payload),signal:controller.signal
-      });
-      let result;
-      try { result = await response.json(); } catch { throw new Error('invalid_response'); }
-      if(!response.ok || !result || typeof result !== 'object' || Array.isArray(result) || result.error || (Array.isArray(result.errors) && result.errors.length > 0) || (result.errors && !Array.isArray(result.errors))) throw new Error('provider_error');
-      form.reset(); form.classList.add('is-sent'); again.hidden = false;
-      setMessage('Заявка отправлена. Проверьте почту и подтвердите подписку по ссылке в письме. До подтверждения рекламные письма не отправляются. Если письмо не пришло, проверьте папку «Спам» или напишите: ' + config.operatorEmail + '.', 'success');
-    } catch(error) {
-      setMessage(error.name === 'AbortError' ? 'Сервис не ответил вовремя. Подтверждение отправки не получено. Проверьте почту перед повторной попыткой.' : 'Подтверждение отправки не получено. Проверьте почту; если письма нет, попробуйте позже или напишите: ' + config.operatorEmail + '.', 'error');
-    } finally {
-      clearTimeout(timeout); busy = false; fields.disabled = false; form.removeAttribute('aria-busy'); submitLabel.textContent = 'Подписаться'; updateButton();
-    }
+    if(!form.reportValidity() || !personal.checked || !marketing.checked) return;
+    message.textContent = ''; // Только UI-прототип: данные не отправляются и не сохраняются.
+    if(typeof success.showModal === 'function') success.showModal();
+    form.reset();
+    updateButton();
   });
-  again.addEventListener('click', () => { form.classList.remove('is-sent'); again.hidden = true; setMessage(''); email.focus(); updateButton(); });
+  updateButton();
 })();
 
   </script>
